@@ -1,22 +1,31 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" class="header-logo" src="./assets/money-rocket.svg">
-    <HelloWorld msg="Hi, I'm Michael"/>
+    <!-- <img alt="Vue logo" class="header-logo" src="./assets/money-rocket.svg">\ -->
+    <Header/>
+    <NavTabs msg="Hi, I'm Michael"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from './components/Header.vue'
+import NavTabs from './components/NavTabs.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Header,
+    NavTabs
   }
 }
 </script>
 
-<style>
+<style lang="scss">
+html {box-sizing: border-box;}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
