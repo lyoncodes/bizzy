@@ -1,30 +1,50 @@
-<template>
-  <div id="app">
-    <!-- <img alt="Vue logo" class="header-logo" src="./assets/money-rocket.svg">\ -->
-    <Header/>
-    <NavTabs msg="Hi, I'm Michael"/>
-  </div>
+<template lang="pug">
+  #app
+    <router-view/>
+    //- WordCloud(
+    //-   v-on:toggleSkillsList="toggleLinkList($event)"
+    //- )
+    b-row
+      ProfileMenu(
+        :toggle="toggleBoolean"
+      )
 </template>
 
 <script>
-import Header from './components/Header.vue'
+import WordCloud from './components/WordCloud.vue'
 import NavTabs from './components/NavTabs.vue'
-
+import ProfileMenu from './components/ProfileMenu'
 export default {
   name: 'App',
+  data () {
+    return {
+      toggleBoolean: false
+    }
+  },
+  methods: {
+    toggleLinkList (booleanData) {
+      this.toggleBoolean = booleanData
+    }
+  },
   components: {
-    Header,
-    NavTabs
+    WordCloud,
+    NavTabs,
+    ProfileMenu
   }
 }
 </script>
 
 <style lang="scss">
-html {box-sizing: border-box;}
+html {
+  box-sizing: border-box
+}
 *,
 *::before,
 *::after {
   box-sizing: inherit;
+}
+body {
+  overflow: hidden;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -32,9 +52,6 @@ html {box-sizing: border-box;}
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
-}
-.header-logo {
-  height: 250px;
+  margin-top: 60px
 }
 </style>
