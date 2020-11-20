@@ -35,50 +35,31 @@
             </span>
           </a>
         </li>
-        <!-- <li>
-          <a href="#">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span>
-              <h5>Social</h5>
-            </span>
-          </a>
-        </li> -->
       </ul>
     </nav>
-    <!-- <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">project</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">project</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">project</a></li>
-    </ul>
-    <h3>Clients</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Unearth</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Greene Realty</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul> -->
   </div>
 </template>
 
 <script>
 export default {
   name: 'NavTabs',
-  props: {
-    msg: String
+  data () {
+    return {
+      showWork: false
+    }
+  },
+  mounted() {
+    this.showWorkToggle();
+  },
+  methods: {
+    showWorkToggle() {
+      this.showWork = !this.showWork;
+      this.$emit('toggleList', this.showWork)
+    }
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 
 h5 {
@@ -95,15 +76,11 @@ a {
 ul {
   list-style: none;
   padding: 0;
-  margin: 0;
-  position: absolute; 
-  top: 70%;
-  left: 50%;
-  width: 500px;
-  height: 250px;
+  margin: 0 auto;
+  width: 66vh;
+  height: 33vh;
   display: flex;
   justify-content: center;
-  margin: -125px -250px;
   transform-style: preserve-3d;
   transform: rotate(-25deg) skew(20deg);
 }
